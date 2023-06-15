@@ -1,0 +1,136 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <style>
+            * { margin: 0; padding: 0; }
+            #page {  width: 800px; margin: 0 auto;}
+            header { display: flex; justify-content: space-between;}
+           
+           main{ display: flex; justify-content: space-between;}
+           nav{width: 800px;}
+           #menu {margin-top: 15px;}
+            nav>ul {
+                list-style: none;
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                background-color: #222;
+                height: 50px;
+            }
+            #search_div {
+                width: 350px;
+                display: flex;
+                height: 30px;
+                border: 1px solid rgb(204, 204, 204);
+                margin-right: 20px;
+                align-items: center;
+                border-radius: 20px;
+                margin-top: 10px;
+            }
+            #search_div input {
+                width: 330px;
+                margin: 5px 10px 5px 30px;
+                height: 20px;
+                outline: none;
+                border: none;
+            }
+            #search_div input:focus{ outline: none;}
+            i{ margin-right: 5px;}
+            header, nav, footer{
+                height: 50px; border: 1px; margin: 3px; 
+            }
+            nav>ul>li>a {
+                display: block;
+                text-decoration: none;
+                text-align: center;
+                line-height: 50px;
+                color: white;
+                width: 120px;
+            }
+            nav>ul>li>a:hover {
+                border-bottom: 5px solid lightseagreen;
+                background-color: #444;
+                color: #bbb;
+            }
+            #btn{display: flex; justify-content: center;}
+            #btnleft{ height: 40px; width: 200px; margin-top: 17px; margin-right: 3px;}
+            #btnright{height: 40px; width: 200px; margin-top: 17px; margin-left: 3px;}
+            section>div>img>button{display: flex; justify-content: center; align-items: center;}
+            form{display: flex; justify-content: center; align-items: center;}
+            aside { width: 100px; height: 200px; background-color: lightseagreen;}
+            section {width: 800px; min-height: 600px;  margin-left: 3px; margin-right: 3px; background-color: white;}
+            footer {height: 40px; border: 1px solid hsl(0, 100%, 50%); margin: 3px; text-align: center; }
+        </style>
+    </head>
+    <body>
+        <div id="page">
+        <header>
+            <h1>I&nbsp;&nbsp;C&nbsp;&nbsp;I&nbsp;&nbsp;A</h1>
+            <div id="search_div">
+                <input type="text"  placeholder="검색어를 입력하세요">
+                <div>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+           <div id="menu">
+                    <i class="fa-solid fa-right-to-bracket" title="로그인"></i>
+                    <i class="fa-solid fa-user" title="내 정보"></i>
+                    <i class="fa-solid fa-cart-shopping" title="장바구니"></i>
+            </div>
+         
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">LOGIN</a></li>
+                <li><a href="#">JOIN</a></li>
+                <li><a href="#">FIND</a></li>
+            </ul>
+        </nav>
+        <main>
+            <aside id="left"> </aside>
+                <section>
+                    <div>
+                        <img id="slider" width="700px">
+                        <div id="btn">
+                        <button onclick="prev();" class="btn btn-outline-primary" id="btnleft" >&#129128;</button>
+                        <button onclick="next();" class="btn btn-outline-primary" id="btnright">&#129130;</button>
+                    </div>  
+                    </div>
+                      <script>
+                       
+                        let index=0;
+                        const images = ['img_5terre_wide.jpg','img_mountains_wide.jpg','img_snow_wide.jpg','img_woods_wide.jpg'];
+                        const image = document.querySelector('#slider');
+                       
+                        image.setAttribute('src',images[index]);
+                    
+                        function prev(){
+                            index--;
+                            if(index<0){
+                            index=3;
+                            }
+                            image.setAttribute('src',images[index]);
+                    
+                        }
+                    
+                        function next(){
+                            index++;
+                            if(index>3){
+                                index=0;
+                            }
+                            image.setAttribute('src',images[index]);
+                        }
+                    
+                      </script>
+                </section>
+           <aside id="right"></aside>
+        </main>
+        <footer>
+            copyright &copy;2023 all right reserved
+        </footer>
+    </div>
+    </body>
+</html>
